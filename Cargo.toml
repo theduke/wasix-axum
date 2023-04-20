@@ -1,0 +1,15 @@
+[package]
+name = "wasix-axum"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = { version = "=0.6.9", features = ["tokio", "json"] }
+serde = { version = "1.0.160", features = ["derive"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.16", features = ["fmt"] }
+
+# NOTE: We need to pin and replace some dependencies to achieve wasix compatibility.
+tokio = { version = "=1.24.2", default-features = false, features = ["rt", "rt-multi-thread", "fs", "macros"] }

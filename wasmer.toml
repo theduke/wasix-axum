@@ -1,0 +1,15 @@
+[package]
+name = "wasmer-tests/wasix-axum"
+version = "0.2.0"
+description = "Rust Axum web server compiled to WASIX."
+license = "MIT"
+wasmer-extra-flags = "--enable-threads --enable-bulk-memory"
+
+[[module]]
+name = "axum"
+source = "./target/wasm32-wasmer-wasi/release/wasix-axum.wasm"
+abi = "wasi"
+
+[[command]]
+name = "proxy"
+module = "axum"
